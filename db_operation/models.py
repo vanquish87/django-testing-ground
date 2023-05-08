@@ -16,3 +16,4 @@ class RecordMapping(models.Model):
 
     class Meta:
         db_table = 'record_mapping'
+        app_label = 'db_operation'

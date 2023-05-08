@@ -82,8 +82,15 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
+    # use "python manage.py migrate --database test_db db_operation" to create db_operation tables
+    "test_db": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "test_db.sqlite3",
+    },
 }
+
+DATABASE_ROUTERS = ["db_operation.router.DbOperationRouter"]
 
 # DATABASES = {
 #     "default": {
