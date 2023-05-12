@@ -87,22 +87,32 @@ DATABASES = {
     "test_db": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "test_db.sqlite3",
+        'CONN_MAX_AGE': 600,
+        'CONN_HEALTH_CHECKS': True,
+        'ATOMIC_REQUESTS': True,
     },
 }
 
-DATABASE_ROUTERS = ["db_operation.router.DbOperationRouter"]
-
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     },
+#     # use "python manage.py migrate --database test_db db_operation" to create db_operation tables
+#     "test_db": {
+#         "ENGINE": "django.db.backends.mysql",
 #         "NAME": config("DB_NAME"),
 #         "USER": config("DB_USER"),
 #         "PASSWORD": config("DB_PASSWORD"),
 #         "HOST": config("DB_HOST"),
 #         "PORT": config("DB_PORT"),
+        # 'CONN_MAX_AGE': 600,
+        # 'CONN_HEALTH_CHECKS': True,
+        # 'ATOMIC_REQUESTS': True,
 #     },
 # }
 
+DATABASE_ROUTERS = ["db_operation.router.DbOperationRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

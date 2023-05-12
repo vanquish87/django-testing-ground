@@ -15,5 +15,4 @@ class RecordMapping(models.Model):
     total_outgoing_bytes = models.PositiveBigIntegerField(db_column='total_outgoing_bytes', verbose_name='upbytes')
 
     class Meta:
-        db_table = 'record_mapping'
-        app_label = 'db_operation'
+        db_table = 'record_mapping_my'
